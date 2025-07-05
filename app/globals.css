@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --user-message: 220 13% 91%;
+    --user-message-foreground: 220 9% 46%;
+    --user-message-border: 220 13% 91%;
+  }
+
+  .dark-blue {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 216 34% 17%;
+    --user-message: 217 33% 17%;
+    --user-message-foreground: 210 40% 98%;
+    --user-message-border: 217 33% 17%;
+  }
+
+  .dark-black {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --user-message: 0 0% 20%;
+    --user-message-foreground: 0 0% 98%;
+    --user-message-border: 0 0% 20%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --user-message: 220 14% 96%;
+    --user-message-foreground: 220 9% 46%;
+    --user-message-border: 220 13% 91%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+.custom-scrollbar-textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar-textarea::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 8px;
+}
+
+.custom-scrollbar-textarea::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 8px;
+}
+
+.custom-scrollbar-textarea::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Formatação customizada */
+.prose {
+  color: inherit;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: inherit;
+}
+
+.prose em {
+  font-style: italic;
+  color: inherit;
+}
+
+.prose u {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.prose del {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  color: inherit;
+  font-weight: 600;
+}
+
+.prose li {
+  color: inherit;
+  margin: 0.25rem 0;
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.875em;
+}
+
+.prose hr {
+  border-color: hsl(var(--border));
+  margin: 1rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: 1rem;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  margin: 0.5rem 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .prose {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .prose h1 {
+    font-size: 1.25rem;
+  }
+
+  .prose h2 {
+    font-size: 1.125rem;
+  }
+
+  .prose h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Ensure mobile input stays fixed */
+@supports (-webkit-touch-callout: none) {
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+/* Textarea auto-resize */
+textarea {
+  field-sizing: content;
+}
+
+/* Placeholder truncation */
+textarea::placeholder {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
