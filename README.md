@@ -1,3 +1,5 @@
+![StudyBot Screenshot](https://i.imgur.com/A3vw8Yv.png)
+
 # 📚 StudyBot: Seu Assistente de Estudos Inteligente
 
 Bem-vindo ao **StudyBot**, o seu companheiro definitivo para turbinar os estudos! Desenvolvido para estudantes e entusiastas do conhecimento, o StudyBot é um chatbot inteligente que simplifica tarefas acadêmicas, ajuda na compreensão de conteúdos complexos e otimiza seu tempo de aprendizado.
@@ -53,7 +55,7 @@ Com um clique, copie qualquer mensagem do chat para a sua área de transferênci
 
 ## 📸 Capturas de Tela
 
-https://i.imgur.com/A3vw8Yv.png
+
 
 ## 💡 Dicas para o Melhor Aproveitamento
 
