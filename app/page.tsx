@@ -36,22 +36,22 @@ const FormattedText = ({ text }: { text: string }) => {
   const formatText = (text: string) => {
     let html = text;
 
-    // Block-level elements first
-    // Headings
+    
+    
     html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
     html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
     html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
 
-    // Horizontal Rule
+    
     html = html.replace(/^---$/gm, '<hr>');
 
-    // Blockquote
+    
     html = html.replace(
       /^> (.*$)/gm,
       '<blockquote>$1</blockquote>'
     );
 
-    // Lists - Process line by line to handle nesting
+    
     const lines = html.split('\n');
     let processedLines: string[] = [];
     let inUnorderedList = false;
@@ -61,7 +61,7 @@ const FormattedText = ({ text }: { text: string }) => {
       const line = lines[i];
       const trimmedLine = line.trim();
 
-      // Unordered list item
+      
       if (trimmedLine.startsWith('* ')) {
         if (!inUnorderedList) {
           if (inOrderedList) { processedLines.push('</ol>'); inOrderedList = false; }
@@ -70,7 +70,7 @@ const FormattedText = ({ text }: { text: string }) => {
         }
         processedLines.push(`<li>${trimmedLine.substring(2)}</li>`);
       }
-      // Ordered list item
+      
       else if (trimmedLine.match(/^\d+\. /)) {
         if (!inOrderedList) {
           if (inUnorderedList) { processedLines.push('</ul>'); inUnorderedList = false; }
@@ -79,26 +79,26 @@ const FormattedText = ({ text }: { text: string }) => {
         }
         processedLines.push(`<li>${trimmedLine.replace(/^\d+\. /, '')}</li>`);
       }
-      // Not a list item, close any open lists
+      
       else {
         if (inUnorderedList) { processedLines.push('</ul>'); inUnorderedList = false; }
         if (inOrderedList) { processedLines.push('</ol>'); inOrderedList = false; }
-        processedLines.push(line); // Add the original line back
+        processedLines.push(line); 
       }
     }
 
-    // Close any remaining open lists at the end
+    
     if (inUnorderedList) { processedLines.push('</ul>'); }
     if (inOrderedList) { processedLines.push('</ol>'); }
 
     html = processedLines.join('\n');
 
-    // Inline elements
-    html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"); // Bold
-    html = html.replace(/(\*([^*]+)\*|_([^_]+)_)/g, "<em>$2$3</em>"); // Italic (captures both *text* and _text_)
-    html = html.replace(/__(.*?)__/g, "<u>$1</u>"); // Underline
-    html = html.replace(/~~(.*?)~~/g, "<del>$1</del>"); // Strikethrough
-    html = html.replace(/`(.*?)`/g, '<code>$1</code>'); // Inline code
+    
+    html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"); 
+    html = html.replace(/(\*([^*]+)\*|_([^_]+)_)/g, "<em>$2$3</em>"); 
+    html = html.replace(/__(.*?)__/g, "<u>$1</u>"); 
+    html = html.replace(/~~(.*?)~~/g, "<del>$1</del>"); 
+    html = html.replace(/`(.*?)`/g, '<code>$1</code>'); 
 
     return html;
   };
@@ -185,7 +185,7 @@ export default function StudyChatbot() {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    // Carrega tema salvo primeiro
+    
     const savedTheme = (localStorage.getItem("studybot-theme") as Theme) || "dark-blue"
     const hasSeenThemeSelector = localStorage.getItem("studybot-theme-selected")
 
@@ -248,8 +248,8 @@ export default function StudyChatbot() {
       const newHeight = Math.min(textareaRef.current.scrollHeight, 200)
       textareaRef.current.style.height = `${newHeight}px`
 
-      // Controla a visibilidade da scrollbar
-      const lineHeight = 24 // aproximadamente
+      
+      const lineHeight = 24 
       const lines = Math.ceil(textareaRef.current.scrollHeight / lineHeight)
       textareaRef.current.style.overflowY = lines > 5 ? "auto" : "hidden"
     }
@@ -386,7 +386,7 @@ export default function StudyChatbot() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       if (e.ctrlKey) {
-        // Ctrl+Enter: adiciona nova linha
+        
         const textarea = e.target as HTMLTextAreaElement
         const start = textarea.selectionStart
         const end = textarea.selectionEnd
@@ -398,7 +398,7 @@ export default function StudyChatbot() {
           adjustTextareaHeight()
         }, 0)
       } else if (!e.shiftKey) {
-        // Enter: envia mensagem
+        
         e.preventDefault()
         sendMessage()
       }
@@ -466,7 +466,7 @@ export default function StudyChatbot() {
         </div>
       )}
 
-      {/* Header */}
+      {}
       <header className="flex items-center justify-between p-3 md:p-2 border-b border-border bg-background shrink-0">
         <div className="flex items-center gap-2">
           <Bot className="h-6 w-6 md:h-7 md:w-7 text-primary" />
@@ -490,7 +490,7 @@ export default function StudyChatbot() {
         </div>
       </header>
 
-      {/* Messages Area */}
+      {}
       <div className="flex-1 overflow-hidden">
         <ScrollArea className="h-full custom-scrollbar">
           <div className="p-3 md:p-4 pb-4 space-y-4">
@@ -578,7 +578,7 @@ export default function StudyChatbot() {
               </div>
             ))}
 
-            {/* Loading indicator */}
+            {}
             {isLoading && (
               <div className="flex gap-2 md:gap-3 justify-start">
                 <div className="w-7 h-7 md:w-8 md:h-8 bg-secondary rounded-full flex items-center justify-center">
@@ -602,7 +602,7 @@ export default function StudyChatbot() {
         </ScrollArea>
       </div>
 
-      {/* Input Area - Fixed at bottom */}
+      {}
       <div className="shrink-0 border-t border-border bg-background sticky bottom-0">
         {uploadedFiles.length > 0 && (
           <div className="p-3 border-b border-border">

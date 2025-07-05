@@ -13,13 +13,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "API key do Gemini não configurada" }, { status: 500 })
     }
 
-    // Monta o histórico da conversa incluindo o contexto
+    
     const conversationHistory = history.map((msg: any) => ({
       role: msg.role === "user" ? "user" : "model",
       parts: [{ text: msg.content }],
     }))
 
-    // Detecta se há conteúdo de arquivo na mensagem
+    
     const hasFileContent = message.includes("Conteúdo do arquivo")
 
     const requestBody = {

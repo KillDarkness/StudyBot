@@ -114,7 +114,6 @@
   }
 }
 
-/* Custom Scrollbars */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
 }
@@ -151,7 +150,6 @@
   background: hsl(var(--foreground));
 }
 
-/* Formatação customizada */
 .prose {
   color: inherit;
 }
@@ -206,7 +204,6 @@
   margin: 0.5rem 0;
 }
 
-/* Mobile optimizations */
 @media (max-width: 768px) {
   .prose {
     font-size: 0.875rem;
@@ -226,7 +223,6 @@
   }
 }
 
-/* Ensure mobile input stays fixed */
 @supports (-webkit-touch-callout: none) {
   .sticky {
     position: -webkit-sticky;
@@ -234,12 +230,10 @@
   }
 }
 
-/* Textarea auto-resize */
 textarea {
   field-sizing: content;
 }
 
-/* Placeholder truncation */
 textarea::placeholder {
   white-space: nowrap;
   overflow: hidden;
